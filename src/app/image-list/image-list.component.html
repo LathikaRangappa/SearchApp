@@ -1,0 +1,34 @@
+<mat-card>
+      <input class="search" mat-input 
+      name="search" (keyup)="searchImages($event.target.value)" placeholder="Search for images">
+    <br>
+    
+    <button style="float: right;" class="searchButton" *ngIf= "imagesFound" (click)="FavoritiesFunc()">Favorities</button>
+    <button style="float: right;" class="searchButton" *ngIf= "Favorities" (click)="backToSearch()">Back to Search</button>
+    <br/><br/>
+  </mat-card>
+  <div *ngIf="searching">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <ng-container *ngIf="imagesFound">
+  <mat-card>
+    <h4 *ngIf="imagesFound">Results</h4>
+      <div *ngFor="let image of images;let i = index" (mouseover)="openDialog(i)" class=image-container>
+        <div>    
+          <img [src]="image.urls.small" class="image">
+        </div>
+      </div>
+  </mat-card>
+</ng-container>
+  <ng-container *ngIf="Favorities">
+  <mat-card>
+    <h4>Favorities</h4>
+      <div *ngFor="let image of FavData;" class=image-container>
+              <div>
+                <img [src]="image.urls.small" class="image">
+              </div>
+      </div>
+  </mat-card>
+</ng-container>
+  <br><br>
+  
