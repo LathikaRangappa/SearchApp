@@ -23,5 +23,4 @@ export class ImageService {
   dataGetter():any{
       return this.data;
     }
- 
 }

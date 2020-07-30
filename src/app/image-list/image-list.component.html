@@ -23,7 +23,7 @@
   <ng-container *ngIf="Favorities">
   <mat-card>
     <h4>Favorities</h4>
-      <div *ngFor="let image of FavData;" class=image-container>
+      <div *ngFor="let image of FavData;let i = index" class=image-container (click)="downloadFav(i)">
               <div>
                 <img [src]="image.urls.small" class="image">
               </div>

@@ -8,11 +8,6 @@
   font-size: 3.5em;
   color: black;
 }
-
-.avatar{
-  margin-bottom: 7px;
-}
-
 .searchButton{
   background-color: rgba(2,179,228,0.75);
   color: #fff;
@@ -30,16 +25,9 @@
   display: inline-block;
 }
 
-.results{
-  padding: 8px;
-  margin-bottom: 12px;
-}
 .mat-card-avatar {
     height: 300px !important;
     width: 300px !important;
-}
-.fabBtn{
-  color:blue
 }
 .mat-dialog-container{
   position: absolute !important;
@@ -52,4 +40,7 @@
 .image{
   width: 300px;
   height: 300px;
+}
+.mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
+  margin-bottom: 6px !important;
 }

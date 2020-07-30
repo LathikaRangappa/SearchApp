@@ -28,14 +28,11 @@ export class ImageListComponent implements OnInit {
   }
 
   constructor(private serv:ImageService,private dialog: MatDialog) {
-    // this.FavData = this.serv.dataGetter();
    }
 
   ngOnInit(): void {
   }
   searchImages(searchQuery){
-    debugger;
-    console.log(searchQuery);
     this.searching = true;
     this.serv.getImages(searchQuery).subscribe((data)=>{
     this.handleSuccess(data);
@@ -44,10 +41,9 @@ export class ImageListComponent implements OnInit {
     );
   }
  
-
 openDialog(i):void {
     const dialogRef=this.dialog.open(DialogPopupComponent , {   
-        width:'500px',
+        width:'300px',
         height:'200px',
         data:this.images[i]
     });
@@ -65,5 +61,10 @@ openDialog(i):void {
     this.imagesFound= true;
     this.Favorities = false;
   }
-  
+  downloadFav(i){
+    console.log(i)
+    this.FavoritiesFunc()
+    console.log(this.FavData[i])
+    window.open(this.FavData[i].links.download)
+  }
 }
