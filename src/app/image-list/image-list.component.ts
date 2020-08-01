@@ -15,6 +15,7 @@ export class ImageListComponent implements OnInit {
   searchQuery:string;
   Favorities:boolean= false;
   FavData: any;
+  path:any;
 
   handleSuccess(data) {
     this.searching = false;
@@ -62,9 +63,26 @@ openDialog(i):void {
     this.Favorities = false;
   }
   downloadFav(i){
-    console.log(i)
     this.FavoritiesFunc()
-    console.log(this.FavData[i])
-    window.open(this.FavData[i].links.download)
-  }
+    this.toDataURL(this.FavData[i].urls.small, function (dataUrl) {
+    console.log(dataUrl)
+    var a = document.createElement("a"); //Create <a>
+    a.href = dataUrl; //Image Base64 Goes here
+    a.download = "Image.png"; //File name Here
+    a.click();
+  })
+}
+  toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            callback(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+}
 }
