@@ -15,7 +15,7 @@ export class ImageListComponent implements OnInit {
   searchQuery:string;
   Favorities:boolean= false;
   FavData: any;
-  path:any;
+  favoriteImages: any = [];
 
   handleSuccess(data) {
     this.searching = false;
@@ -41,7 +41,6 @@ export class ImageListComponent implements OnInit {
     }
     );
   }
- 
 openDialog(i):void {
     const dialogRef=this.dialog.open(DialogPopupComponent , {   
         width:'300px',
@@ -71,7 +70,7 @@ openDialog(i):void {
     a.download = "Image.png"; //File name Here
     a.click();
   })
-}
+ }
   toDataURL(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -84,5 +83,5 @@ openDialog(i):void {
     xhr.open('GET', url);
     xhr.responseType = 'blob';
     xhr.send();
-}
+ }
 }

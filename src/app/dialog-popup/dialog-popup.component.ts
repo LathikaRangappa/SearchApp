@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef, MatDialog} from "@angular/material/dialog";
 import { ImageService } from '../shared/image.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FavListsCompComponent } from '../fav-lists-comp/fav-lists-comp.component';
 
 @Component({
   selector: 'app-dialog-popup',
@@ -30,6 +31,16 @@ export class DialogPopupComponent implements OnInit {
   openSnackBar(message: any, action: string) {
     this.snackBar.open(message, action, {
         duration: 3000,
+    });
+  }
+  openDialog():void {
+    const dialogRef=this.dialog.open(FavListsCompComponent , {   
+        width:'300px',
+        height:'200px',
+        data:this.data
+    });
+    dialogRef.afterClosed().subscribe(result=> {
+      console.log(result)
     });
   }
 }

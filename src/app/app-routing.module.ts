@@ -6,9 +6,8 @@ import { ImageListComponent } from './image-list/image-list.component';
 
 
 const routes: Routes = [
-  {path:"",component:ImageListComponent},
-  {path:"home",component:ImageListComponent},
-  // {path:"fav",component:FavComponent}
+  {path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path:"home",component:ImageListComponent}
 ];
 
 @NgModule({

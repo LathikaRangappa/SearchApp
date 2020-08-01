@@ -10,6 +10,7 @@ import { MaterialModule } from '../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogPopupComponent } from './dialog-popup/dialog-popup.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { FavListsCompComponent } from './fav-lists-comp/fav-lists-comp.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     AppComponent,
     ImageListComponent,
     DialogPopupComponent,
+    FavListsCompComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatDialogModule
   ],
   providers: [],
-  entryComponents:[DialogPopupComponent],
+  entryComponents:[DialogPopupComponent,FavListsCompComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

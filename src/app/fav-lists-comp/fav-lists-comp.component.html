@@ -1,0 +1,17 @@
+
+    <!-- <div class="display:block">
+        <div>
+    <input type="radio"  name="list1" value="list1" (click)="addToList('List1')">List1
+    </div>
+    <div>
+    <input type="radio"  name="list2" value="list2" (click)="addToList('List2')">List2
+</div>
+</div> -->
+
+<button mat-button class="searchButton" type="button">Create List</button>
+<br/>
+<input class="search" mat-input [(ngModel)]="listName" name="search"  placeholder="Enter List Name">
+<button mat-button class="searchButton" (click)="addToFavourities(listName)" type="button">OK</button>
+
+<!-- <button (click)="addAnotherImage()" mat-button  mat-dialog-close class="searchButton" type="button">Add to List</button> -->
+

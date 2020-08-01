@@ -44,3 +44,18 @@
 .mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
   margin-bottom: 6px !important;
 }
+.mydivoverlap{
+position: relative;
+z-index: 1;
+}
+.mybuttonoverlap{
+position: absolute;
+z-index: 2;
+top: 189px;
+display: none;
+left: 118px; 
+}
+.mydivouter:hover .mybuttonoverlap{ 
+display:block !important;
+}
+
