@@ -16,8 +16,7 @@
       <div class="row">
         <div class ="col-md-2 mydivouter image-container" *ngFor = "let image of images; let i=index;">
         <img src='{{image.urls.small}}' class="image"/>
-        <mat-icon  class="mybuttonoverlap"  (click)="openDialog(i)" >starborder</mat-icon>
-        <!-- <input type="button" class="mybuttonoverlap btn btn-info" (click)="openDialog(i)" value="Add to Favorities"/> -->
+        <input type="button" class="mybuttonoverlap btn btn-info" (click)="openDialog(i)" value="Add to Favorities"/>
       </div>
     </div>
   </mat-card>
