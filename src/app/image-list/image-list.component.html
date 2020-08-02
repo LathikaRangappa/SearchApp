@@ -1,23 +1,23 @@
 <mat-card>
-      <input class="search" mat-input 
+    <input class="search" mat-input 
       name="search" (keyup)="searchImages($event.target.value)" placeholder="Search for images">
     <br>
     
-    <button style="float: right;" class="searchButton" *ngIf= "imagesFound" (click)="FavoritiesFunc()">Favorities</button>
+    <button style="float: right;" class="searchButton" *ngIf= "imagesFound" (click)="FavoritiesFunc()">Go to Favorities</button>
     <button style="float: right;" class="searchButton" *ngIf= "Favorities" (click)="backToSearch()">Back to Search</button>
     <br/><br/>
-  </mat-card>
-  <div *ngIf="searching">
+</mat-card>
+<div *ngIf="searching">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  </div>
-
+</div>
 <ng-container *ngIf="imagesFound">
   <mat-card>
     <h4>Results</h4>  
       <div class="row">
         <div class ="col-md-2 mydivouter image-container" *ngFor = "let image of images; let i=index;">
         <img src='{{image.urls.small}}' class="image"/>
-        <input type="button" class="mybuttonoverlap btn btn-info" (click)="openDialog(i)" value="Add to Favorities"/>
+        <mat-icon  class="mybuttonoverlap"  (click)="openDialog(i)" >starborder</mat-icon>
+        <!-- <input type="button" class="mybuttonoverlap btn btn-info" (click)="openDialog(i)" value="Add to Favorities"/> -->
       </div>
     </div>
   </mat-card>
@@ -26,14 +26,11 @@
   <mat-card>
     <h4>Favorities</h4>
       <div *ngFor="let image of FavData;let i = index" class=image-container (click)="downloadFav(i)">
+        <mat-icon  class="saveIcon">star</mat-icon><h4>{{image.name}}</h4>
               <div>
-                <img src="{{image.urls.small}}" class="image">
+                <img src="{{image.imageUrl}}" class="image">
               </div>
       </div>
   </mat-card>
 </ng-container>
   <br><br>
-  
-
-  
-  

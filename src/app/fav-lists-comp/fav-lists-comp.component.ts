@@ -13,32 +13,45 @@ export class FavListsCompComponent implements OnInit {
   listArray : any = [];
   favList: boolean;
   data: any;
-  selectedImage: any;
-  list1: any = [];
-  list2: any = [];
-  favor1: any;
-  favor2: any;
-  val1: string;
   listValues: any = [];
   obj: any;
-  
+  lists: any = [];
+  showInput: boolean = false;
+  listname:any;
+  favLists: unknown[];
   constructor(private serv:ImageService,private dialog: MatDialog,public snackBar: MatSnackBar,private dialogRef: MatDialogRef<FavListsCompComponent>,@Inject(MAT_DIALOG_DATA) data) {
     this.data = data;
    }
   ngOnInit(): void {
-    let lists = this.getLists();
-    if(lists != null){
-      this.favList = true;
+    this.lists = this.serv.dataGetter();
+    if(this.lists.length != 0){
+    this.favList = true;
+    this.favLists = [...new Set(this.lists.map(x=>x.name))]
     }
-    console.log(lists);
+    console.log(this.lists);
+  }
+  
+  //snackBar
+  openSnackBar(message: any, action: string) {
+    this.snackBar.open(message, action, {
+        duration: 3000,
+    });
   }
   addToFavourities(listName){
-    this.obj = {}
-    this.obj[listName]=this.data;
+    if(listName === undefined){
+        alert("Input field cannot be empty")
+    }else{
+      this.obj = {"name":listName,"imageUrl":this.data.urls.small}
+      this.serv.dataSetter(this.obj);
+      this.openSnackBar(this.data.alt_description, "Added to Favourities");
+    }
+  }
+  addToExisting(listName){
+    console.log(listName)
+    this.obj = {"name":listName,"imageUrl":this.data.urls.small}
     this.serv.dataSetter(this.obj);
   }
-  getLists(){
-    var lists = this.serv.dataGetter();
-    return lists;
+  addNewList(){
+    this.showInput = true
   }
 }

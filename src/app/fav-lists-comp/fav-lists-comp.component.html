@@ -1,17 +1,17 @@
 
-    <!-- <div class="display:block">
-        <div>
-    <input type="radio"  name="list1" value="list1" (click)="addToList('List1')">List1
+    <div *ngIf= "!showInput">
+        <h4>Add to Lists</h4>
+        <div  class="display:block" *ngFor="let list of favLists">
+            <a style="cursor:pointer;" mat-dialog-close (click)="addToExisting(list)">{{list}}</a>
+        </div>    
     </div>
-    <div>
-    <input type="radio"  name="list2" value="list2" (click)="addToList('List2')">List2
-</div>
-</div> -->
+    <hr/>
 
-<button mat-button class="searchButton" type="button">Create List</button>
+<button mat-button class="addBtn" type="button" (click)="addNewList()">Create new List</button>
 <br/>
-<input class="search" mat-input [(ngModel)]="listName" name="search"  placeholder="Enter List Name">
-<button mat-button class="searchButton" (click)="addToFavourities(listName)" type="button">OK</button>
+<div *ngIf= "showInput">
+<input class="search" mat-input class="form-control" [(ngModel)]="listName" name="search"  placeholder="Enter List Name" required>
+<button mat-raised-button mat-dialog-close (click)="addToFavourities(listName)" class="saveBtn"><mat-icon  class="saveIcon" color="success">check</mat-icon></button>
+</div>
 
-<!-- <button (click)="addAnotherImage()" mat-button  mat-dialog-close class="searchButton" type="button">Add to List</button> -->
 

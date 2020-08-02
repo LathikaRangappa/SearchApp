@@ -1,0 +1,11 @@
+
+.addBtn{
+    background-color: rgba(2,179,228,0.75);
+    color: #fff;
+    margin-left:50px;
+  }
+.saveBtn{
+    cursor: pointer;
+    color: green;
+    border: none;
+}

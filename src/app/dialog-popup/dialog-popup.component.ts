@@ -25,13 +25,6 @@ export class DialogPopupComponent implements OnInit {
   }
   addToFavourities(){
     this.serv.dataSetter(this.data);
-    this.openSnackBar(this.data.alt_description, "Added to Favourities");
-  }
-  //snackBar
-  openSnackBar(message: any, action: string) {
-    this.snackBar.open(message, action, {
-        duration: 3000,
-    });
   }
   openDialog():void {
     const dialogRef=this.dialog.open(FavListsCompComponent , {   

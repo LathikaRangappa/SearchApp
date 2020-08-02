@@ -63,7 +63,7 @@ openDialog(i):void {
   }
   downloadFav(i){
     this.FavoritiesFunc()
-    this.toDataURL(this.FavData[i].urls.small, function (dataUrl) {
+    this.toDataURL(this.FavData[i].imageUrl, function (dataUrl) {
     console.log(dataUrl)
     var a = document.createElement("a"); //Create <a>
     a.href = dataUrl; //Image Base64 Goes here
