@@ -11,9 +11,9 @@ export class ImageService {
   
   constructor(private http:HttpClient) { }
 
-  getImages(searchQuery:string){
-    console.log(searchQuery)
-    return this.http.get("https://api.unsplash.com/search/photos?query="+searchQuery+"&client_id=i0IW-tfZm9qtQ4aiTni5-__pJS9Tu-IUTaIVYxTKZ0U");
+  getImages(){
+    // return this.http.get("https://api.unsplash.com/search/photos?query="+"mango"+"&client_id=i0IW-tfZm9qtQ4aiTni5-__pJS9Tu-IUTaIVYxTKZ0U");
+    return this.http.get("./assets/response.json")
   }
   dataSetter(obj:any){
     this.favArray.push(obj)

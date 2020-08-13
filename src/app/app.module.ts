@@ -11,6 +11,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { DialogPopupComponent } from './dialog-popup/dialog-popup.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { FavListsCompComponent } from './fav-lists-comp/fav-lists-comp.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { UserEffects } from './user.effects';
+import { EffectsModule } from '@ngrx/effects';
+import { reducer } from './user.reducer'
 
 
 @NgModule({
@@ -27,7 +34,9 @@ import { FavListsCompComponent } from './fav-lists-comp/fav-lists-comp.component
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    StoreModule.forRoot({cart:reducer}),
+    EffectsModule.forRoot([UserEffects]),
   ],
   providers: [],
   entryComponents:[DialogPopupComponent,FavListsCompComponent],

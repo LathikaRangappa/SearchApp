@@ -59,3 +59,11 @@ left: 118px;
 display:block !important;
 }
 
+.mybuttonoverlap1{
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  display: none;
+  left: 118px; 
+  }
+

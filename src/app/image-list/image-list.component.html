@@ -16,6 +16,7 @@
       <div class="row">
         <div class ="col-md-2 mydivouter image-container" *ngFor = "let image of images; let i=index;">
         <img src='{{image.urls.small}}' class="image"/>
+        <input type="button" class="mybuttonoverlap1 btn btn-info" (click)="navigateToLink(i)" value="Author Link"/>
         <input type="button" class="mybuttonoverlap btn btn-info" (click)="openDialog(i)" value="Add to Favorities"/>
       </div>
     </div>
@@ -25,7 +26,7 @@
   <mat-card>
     <h4>Favorities</h4>
       <div *ngFor="let image of FavData;let i = index" class=image-container (click)="downloadFav(i)">
-        <mat-icon  class="saveIcon">star</mat-icon><h4>{{image.name}}</h4>
+        <mat-icon  class="saveIcon">star</mat-icon><h4>{{image.urls.small}}</h4>
               <div>
                 <img src="{{image.imageUrl}}" class="image">
               </div>

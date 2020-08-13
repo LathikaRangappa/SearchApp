@@ -125,6 +125,6 @@
   },
   "defaultProject": "app",
   "cli": {
-    "analytics": false
+    "defaultCollection": "@ngrx/schematics"
   }
 }
